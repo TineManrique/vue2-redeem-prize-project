@@ -1,0 +1,25 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $background-grey;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+hr {
+    border-top-width: 2px;
+}
+
+button {
+    cursor: pointer;
+    background-color: $yellow-button;
+    color: $black-text;
+    border-radius: 28px;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
