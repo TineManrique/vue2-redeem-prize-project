@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2> Not Found</h2>
-    404 Not Found
-    You might be interested on to see list of rewards
-    <router-link :to="{ path: '/' }">Go Home</router-link>
+    <b-jumbotron header="404 Not Found">
+      <p>You might be interested on to see list of rewards</p>
+      <router-link :to="{ path: '/' }">Go Home</router-link>
+    </b-jumbotron>
   </div>
 </template>
 <script>

@@ -1,8 +1,6 @@
 <template>
   <div class="login-page">
-    <b-card>
-      <SignUpLoginForm formType="login" @on-submit-form="login"/>
-    </b-card>
+    <FormCard formType="login" @on-submit-form="login"/>
     <div class="text-center">
       <router-link :to="{name: 'SignUp'}">
         <span>Not yet a user?</span>
@@ -12,25 +10,25 @@
 </template>
 
 <script>
-import SignUpLoginForm from '../components/SignUpLoginForm';
+import FormCard from '../components/FormCard';
 import { userLogin } from '../api/users.api.js';
 import { redirectToPath, setLocalStorageData } from '../utils/common';
 
 export default {
   components: {
-    SignUpLoginForm
+    FormCard
   },
   methods: {
     async login(formData) {
       try {
         const response = await userLogin(formData);
         if (response.data && response.data.isSuccess) {
-          setLocalStorageData('token', response.data.token);
+          setLocalStorageData('token', response.data.token)
           redirectToPath('/');
         }
       } catch(error) {
-         /* eslint-disable */
-        console.log(error);
+        alert('Login failed. Please check email and password');
+        // TODO: A toast message or a modal can be created. 
       }
     }
   }
@@ -42,10 +40,5 @@ export default {
     background-color: $background-grey;
     padding: 40px;
     height: 600px;
-    .card {
-      width: 80%;
-      margin: 0 auto;
-      border-radius: 5px;
-    }
   }
 </style>

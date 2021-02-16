@@ -114,10 +114,16 @@ export default {
 
 <style lang="scss" scoped>
   .reward-detail {
-    margin: 40px 150px 100px 150px;
+    margin: 20px;
+    @include breakpoint(laptop) {
+      margin: 40px 150px 100px 150px;
+    }
     img {
       width: 100%;
       height: 400px;
+      @include breakpoint(mobileonly) {
+        height: 250px;
+      }
     }
     .redeeem-detail {
       margin-bottom: 50px;
@@ -127,6 +133,9 @@ export default {
       padding-top: 0;
       .card-text {
         margin-bottom: 70px;
+        @include breakpoint(mobileonly) {
+          margin-bottom: 0;
+        }
         h2 {
           font-weight: 800;
         }
@@ -151,6 +160,9 @@ export default {
             margin: 30px 0;
             &:disabled {
               cursor: not-allowed;
+            }
+            @include breakpoint(mobileonly) {
+              width: 150px;
             }
         }
       }

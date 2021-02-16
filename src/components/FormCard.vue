@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-card>
     <b-form @submit="onSubmit" @reset="onReset">
         <b-form-group id="input-group-1" label="First Name:" label-for="input-1" v-if="formType === 'register'">
             <b-form-input
@@ -54,7 +54,7 @@
             <b-button type="reset" variant="danger">Reset</b-button>
         </div>
     </b-form>
-  </div>
+  </b-card>
 </template>
 
 <script>
@@ -80,6 +80,7 @@
                 if (this.submitted) {
                     return this.form.password.length >= 6;
                 }
+                // TODO Add Email Validation
                 return true;
             }
         },
@@ -107,6 +108,10 @@
     }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .card {
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
 </style>
