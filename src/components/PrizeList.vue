@@ -1,22 +1,15 @@
 <template>
     <div class="prize-list">
         <div class="prize-list__text">
-        
             <h3>Here is the full list of prizes that you can win.</h3>
         </div>
-        <!-- <div class="prize-list__items"> -->
         <b-container>
             <b-row>
-                <b-col v-for="prize in prizes" :key="prize.id" md="4" sm="6">
-                <!-- <div v-for="prize in prizes" :key="prize.id" class="prize-list__items--card"> -->
+                <b-col v-for="prize in prizes" :key="prize._id" md="4" sm="6">
                     <PrizeItem :prizeItem="prize"/>
-                    <!-- TEST {{ prize.id}} -->
                 </b-col>
             </b-row>
-            
         </b-container>
-            
-        <!-- </div> -->
     </div>
 </template>
 

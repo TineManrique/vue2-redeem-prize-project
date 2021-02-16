@@ -7,6 +7,7 @@
 
 <script>
 import Navbar from './components/Navbar';
+import { getLocalStorageData } from './utils/common.js';
 
 export default {
     components: {
@@ -15,10 +16,15 @@ export default {
     data() {
       return {
         loggedInUser: {
-          firstName: 'John',
-          lastName: "Smith"
+          firstName: '',
+          lastName: ''
         }
       }
+    },
+    updated() {
+      const user = getLocalStorageData('userDetail');
+      this.loggedInUser.firstName = user ? user.firstName : '';
+      this.loggedInUser.lastName = user ? user.lastName : '';
     }
 }
 </script>

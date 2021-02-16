@@ -1,6 +1,6 @@
 <template>
     <div class="terms-container">
-        <h3>Terms & Conditions | Private Policy</h3>
+        <h3>Terms & Conditions  |  Privacy Policy</h3>
     </div>
 </template>
 

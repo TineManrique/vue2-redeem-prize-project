@@ -11,7 +11,7 @@
               <b-card-text><h2>Win a {{ prize.name }}</h2></b-card-text>
               <hr>
               <div class="redeem-card__button">
-                <b-button @click="openConfirmation">Redeem ></b-button>
+                <b-button @click="openConfirmation" :disabled="!isRedeemable">Redeem ></b-button>
               </div>
               <hr>
               <small>{{prize.quantity}} left in stock</small>
@@ -46,12 +46,16 @@
 import Lightbox from './Lightbox.vue';
 import ConfirmModal from './ConfirmModal.vue';
 import CongratsModal from './CongratsModal.vue';
+import { redeemPrize } from '../api/prizes.api.js';
 
 export default {
   props: {
+    isLoggedInUser: {
+      type: Boolean
+    },
     prize: {
-      id: {
-          type: Number,
+      _id: {
+          type: String,
           required: true
       },
       name: {
@@ -74,6 +78,7 @@ export default {
   },
   data() {
     return {
+      isRedeemable: this.prize.quantity > 0 && this.isLoggedInUser || false,
       showConfirmModal: false,
       showCongratsModal: false,
     }
@@ -86,9 +91,22 @@ export default {
       this.showConfirmModal = true;
     },
     confirmRedeem(isConfirmed) {
+      this.$emit('is-loading', true);
       this.showConfirmModal = false;
       if (isConfirmed) {
+        this.redeemPrize();
+      }
+    },
+    async redeemPrize() {
+      try {
+        const response = await redeemPrize(this.$route.params.id);
+        this.prize = response.data;
         this.showCongratsModal = true;
+
+        this.$emit('is-loading', false);
+      } catch(error) {
+        console.log(error);
+        this.$emit('is-loading', false);
       }
     }
   }
@@ -123,7 +141,7 @@ export default {
             cursor: pointer;
             background-color: $yellow-button;
             color: $black-text;
-            width: 184px;
+            width: 230px;
             height: 44px;
             border-radius: 28px;
             border: none;
@@ -132,6 +150,9 @@ export default {
             justify-content: center;
             align-items: center;
             margin: 30px 0;
+            &:disabled {
+              cursor: not-allowed;
+            }
         }
       }
     }

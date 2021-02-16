@@ -12,7 +12,7 @@
                 </div>
             </b-card-text>
             <div class="redeem-button">
-                <router-link :to="{name: 'PrizeDetail', params: { id: prizeItem.id }}">
+                <router-link :to="{name: 'PrizeDetail', params: { id: prizeItem._id }}">
                     <button>
                         Redeem
                         <font-awesome-icon icon="greater-than"></font-awesome-icon>
@@ -27,8 +27,8 @@
 export default {
     props: {
         prizeItem: {
-            id: {
-                type: Number,
+            _id: {
+                type: String,
                 required: true
             },
             name: {

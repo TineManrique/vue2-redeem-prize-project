@@ -19,20 +19,6 @@
             </b-collapse>
         </b-navbar>
     </div>
-  <!-- <div class="navbar-header">
-      <div class="logo-section">
-          <div class="circle logo"></div>
-          <div class="logo-text">
-            <h2>LOGO</h2>
-          </div>
-      </div>
-      <div class="user-section">
-          <div class="circle profile"></div>
-          <div class="user-text">
-            <h5>{{ user.firstName }} {{ user.lastName }}</h5>
-          </div>
-      </div> -->
-  <!-- </div> -->
 </template>
 
 <script>
