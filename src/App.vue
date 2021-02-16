@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar :user="loggedInUser"/>
+    <Navbar :user="loggedInUser" :isLoggedInUser="isLoggedIn"/>
     <router-view />
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
     },
     data() {
       return {
+        isLoggedIn: false,
         loggedInUser: {
           firstName: '',
           lastName: ''
@@ -22,9 +23,15 @@ export default {
       }
     },
     updated() {
-      const user = getLocalStorageData('userDetail');
-      this.loggedInUser.firstName = user ? user.firstName : '';
-      this.loggedInUser.lastName = user ? user.lastName : '';
+      this.checkIfLoggedInUser();
+    },
+    methods: {
+      checkIfLoggedInUser() {
+        const user = getLocalStorageData('userDetail');
+        this.loggedInUser.firstName = user ? user.firstName : '';
+        this.loggedInUser.lastName = user ? user.lastName : '';
+        this.isLoggedIn = user != null;
+      }
     }
 }
 </script>

@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       prizes: [],
-      isLoading: true
+      isLoading: true,
+      isLoggedIn: false
     }
   },
   mounted() {
@@ -43,7 +44,7 @@ export default {
         console.log(error);
         this.isLoading = false;
       }
-    }
+    },
   }
 }
 </script>

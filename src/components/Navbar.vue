@@ -7,14 +7,16 @@
             </b-navbar-brand>
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav class="ml-auto">
-                    <div class="circle profile"></div>
-                    <div class="user-text">
-                        <h6>{{ user.firstName }} {{ user.lastName }}</h6>
-                    </div>
-                    <!-- <b-nav-item-dropdown right>
-                        <template slot="button-content">{{ user.firstName }} {{ user.lastName }}</template>
-                        <b-dropdown-item href="#">Signout</b-dropdown-item>
-                    </b-nav-item-dropdown> -->
+                    <div class="circle profile" v-if="isLoggedInUser"></div>
+                    <b-nav-item-dropdown right>
+                        <template #button-content>
+                            <div class="user-text" v-if="isLoggedInUser">
+                                <h6>{{ user.firstName }} {{ user.lastName }}</h6>
+                            </div>
+                        </template>
+                        <b-dropdown-item :to="{name: 'Logout'}" v-if="isLoggedInUser">Sign Out</b-dropdown-item>
+                        <b-dropdown-item :to="{name: 'Login'}" v-else>Login</b-dropdown-item>
+                        </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -24,6 +26,9 @@
 <script>
 export default {
     props: {
+        isLoggedInUser: {
+            type: Boolean
+        },
         user: {
             firstName: {
                 type: String
@@ -40,7 +45,6 @@ export default {
     .navbar-header {
         background-color: $white;
         padding-left: 5px;
-        overflow: hidden;
         .navbar-brand {
             display: inline-flex;
         };
@@ -53,7 +57,7 @@ export default {
             border-radius: 50%;
         }
         .fa-bullseye {
-            color: #f6b220;
+            color: $yellow-logo;
             width: 50px;
             height: 50px;
             margin-right: 9px;
@@ -65,12 +69,14 @@ export default {
             }
         }
         .profile {
-            background: #e8e8e8;
+            background: $profile-grey;
             margin-top: 11px;
             margin-right: 12px;
         }
         .user-text {
-            margin-top: 15px;
+            display: inline-block;
+            margin-top: 10px;
+            color: $black-text;
         }
     }
 </style>

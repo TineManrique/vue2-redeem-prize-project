@@ -31,6 +31,7 @@ const routes = [
   },
   {
     path: '/logout',
+    name: 'Logout',
     redirect: '/login',
     beforeEnter: (to, from, next) => {
       logOut(next);

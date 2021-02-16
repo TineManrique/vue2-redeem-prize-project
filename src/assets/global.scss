@@ -4,9 +4,10 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: $background-grey;
 }
-body {
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 hr {
     border-top-width: 2px;

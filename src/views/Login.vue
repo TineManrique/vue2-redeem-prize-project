@@ -40,7 +40,7 @@ export default {
   .login-page {
     background-color: $background-grey;
     padding: 40px;
-    height: auto;
+    height: 600px;
     .card {
       width: 80%;
       margin: 0 auto;

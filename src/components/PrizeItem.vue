@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
     props: {
         prizeItem: {
@@ -48,7 +49,7 @@ export default {
                 required: true
             }
         }
-    }
+    },
 }
 </script>
 
