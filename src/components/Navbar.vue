@@ -7,7 +7,7 @@
             </b-navbar-brand>
             <b-collapse is-nav id="nav_collapse">
                 <b-navbar-nav class="ml-auto">
-                    <div class="circle profile" v-if="isLoggedInUser"></div>
+                    <div class="circle profile"></div>
                     <b-nav-item-dropdown right>
                         <template #button-content>
                             <div class="user-text" v-if="isLoggedInUser">

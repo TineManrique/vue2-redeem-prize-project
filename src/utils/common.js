@@ -48,7 +48,6 @@ const verifyUserToken = async function(to, from, next) {
 
         next();
     } catch(err) {
-        console.log(err);
         removeLocalStorageData(['token', 'userDetail']);
         next();
     }

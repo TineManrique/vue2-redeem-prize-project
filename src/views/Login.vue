@@ -29,6 +29,7 @@ export default {
           redirectToPath('/');
         }
       } catch(error) {
+         /* eslint-disable */
         console.log(error);
       }
     }

@@ -2,7 +2,7 @@
   <div>
     <OverlaySpinner :show="isLoading">
       <RewardHeader />
-      <PrizeList :prizes="prizes"/>
+      <PrizeList :v-if="prizes && prizes.length" :prizes="prizes"/>
       <TermsAndPrivacy />
     </OverlaySpinner>
   </div>
@@ -41,7 +41,6 @@ export default {
 
         this.isLoading = false;
       } catch(error) {
-        console.log(error);
         this.isLoading = false;
       }
     },

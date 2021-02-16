@@ -105,7 +105,6 @@ export default {
 
         this.$emit('is-loading', false);
       } catch(error) {
-        console.log(error);
         this.$emit('is-loading', false);
       }
     }
