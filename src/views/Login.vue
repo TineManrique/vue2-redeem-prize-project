@@ -1,11 +1,13 @@
 <template>
   <div class="login-page">
-    <FormCard formType="login" @on-submit-form="login"/>
-    <div class="text-center">
-      <router-link :to="{name: 'SignUp'}">
-        <span>Not yet a user?</span>
-      </router-link>
-    </div>
+    <OverlaySpinner :show="isLoading"> 
+      <FormCard formType="login" @on-submit-form="login"/>
+      <div class="text-center">
+        <router-link :to="{name: 'SignUp'}">
+          <span>Not yet a user?</span>
+        </router-link>
+      </div>
+    </OverlaySpinner>
   </div>
 </template>
 
@@ -13,21 +15,30 @@
 import FormCard from '../components/FormCard';
 import { userLogin } from '../api/users.api.js';
 import { redirectToPath, setLocalStorageData } from '../utils/common';
+import OverlaySpinner from '../components/OverlaySpinner.vue';
 
 export default {
   components: {
-    FormCard
+    FormCard, OverlaySpinner
+  },
+  data() {
+    return {
+        isLoading: false,
+    }
   },
   methods: {
     async login(formData) {
+      this.isLoading = true
       try {
-        const response = await userLogin(formData);
+        const response = await userLogin(formData)
         if (response.data && response.data.isSuccess) {
+          this.isLoading = false
           setLocalStorageData('token', response.data.token)
           redirectToPath('/');
         }
       } catch(error) {
-        alert('Login failed. Please check email and password');
+        this.isLoading = false
+        alert('Login failed. Please check email and password')
         // TODO: A toast message or a modal can be created. 
       }
     }

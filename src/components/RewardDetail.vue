@@ -13,6 +13,9 @@
               <div class="redeem-card__button">
                 <b-button @click="openConfirmation" :disabled="!isRedeemable">Redeem ></b-button>
               </div>
+              <small class="text-danger" v-if="!isLoggedInUser">
+                To redeem this prize, kindly login to your account
+              </small>
               <hr>
               <small>{{prize.quantity}} left in stock</small>
             </b-card>

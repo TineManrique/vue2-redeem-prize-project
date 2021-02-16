@@ -29,11 +29,12 @@ export default {
     return {
         prize : null,
         isLoading: true,
-        isLoggedInUser: this.checkIfLoggedIn()
+        isLoggedInUser: false,
     }
   },
   mounted () {
     this.getPrize();
+    this.isLoggedInUser = this.checkIfLoggedIn();
   },
   methods: {
     async getPrize() {
@@ -50,7 +51,7 @@ export default {
       this.isLoading = isLoading;
     },
     checkIfLoggedIn() {
-      return getLocalStorageData('token') && getLocalStorageData('userDetail');
+      return getLocalStorageData('token') != null && getLocalStorageData('userDetail') != null;
     }
   }
 }
