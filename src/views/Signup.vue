@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import FormCard from '../components/FormCard';
+import FormCard from '../components/shared/FormCard';
 import { userSignUp } from '../api/users.api';
 import { redirectToPath } from '../utils/common';
-import OverlaySpinner from '../components/OverlaySpinner.vue';
+import OverlaySpinner from '../components/shared/OverlaySpinner.vue';
 
 export default {
   components: {

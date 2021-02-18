@@ -12,7 +12,7 @@
 import PrizeList from '../components/PrizeList.vue'
 import RewardHeader from '../components/RewardHeader.vue'
 import TermsAndPrivacy from '../components/TermsAndPrivacy.vue'
-import OverlaySpinner from '../components/OverlaySpinner.vue'
+import OverlaySpinner from '../components/shared/OverlaySpinner.vue'
 import { getAllPrizes } from '../api/prizes.api.js';
 
 export default {

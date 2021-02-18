@@ -14,7 +14,7 @@
 import RewardDetail from '../components/RewardDetail.vue'
 import RewardHeader from '../components/RewardHeader.vue'
 import TermsAndPrivacy from '../components/TermsAndPrivacy.vue'
-import OverlaySpinner from '../components/OverlaySpinner.vue';
+import OverlaySpinner from '../components/shared/OverlaySpinner.vue';
 import { getPrize } from '../api/prizes.api';
 import { getLocalStorageData } from '../utils/common';
 

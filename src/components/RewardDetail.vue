@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Lightbox from './Lightbox.vue';
+import Lightbox from './shared/Lightbox.vue';
 import ConfirmModal from './ConfirmModal.vue';
 import CongratsModal from './CongratsModal.vue';
 import { redeemPrize } from '../api/prizes.api.js';
